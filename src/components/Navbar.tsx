@@ -15,7 +15,9 @@ export const routes = [
 ] as const;
 
 const Navbar = () => {
-  const [_scroll, setscroll] = useState(0);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [_, setscroll]
+  = useState(0);
   const [isVisible, setIsVisible] = useState(true);
 
 
@@ -55,7 +57,7 @@ const Navbar = () => {
               key={i}
               href={url}
               className={cn(
-                'after:ease-after:ease-&lsqb;cubic-bezier(0.65_0.05_0.36_1)&rsqb; relative font-semibold after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-100 after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100',
+                'desktop after:ease-after:ease-&lsqb;cubic-bezier(0.65_0.05_0.36_1)&rsqb; relative font-semibold after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-100 after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100',
               )}
             >
               {name}

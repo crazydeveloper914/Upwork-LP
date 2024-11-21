@@ -2,8 +2,7 @@ import { FC } from 'react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './ui/accordion';
 import MaxWidthWrapper from './MaxWidthWrapper';
 import { cn } from '../lib/utils';
-
-interface FaqsProps { }
+import Motion from './Motion';
 
 const faqs: { question: string; answer: string }[] = [
   {
@@ -30,18 +29,18 @@ const faqs: { question: string; answer: string }[] = [
 
 
 
-const Faqs: FC<FaqsProps> = ({ }) => {
+const Faqs: FC = ({ }) => {
   return (
     <div id='faqs'>
       <MaxWidthWrapper className="pt-20 text-stone-800">
-        <div className="border-l border-l-cyan-950 px-5 py-2 font-semibold">
+        <Motion direction='right' className="border-l border-l-cyan-950 px-5 py-2 font-semibold">
           <h1 className={cn('text-4xl font-bold')}>FAQs</h1>
           <p className="text-base">
             Different questions about <span className='font-bold'>AquaVive</span> addressed to us with their corresponding solutions
           </p>
-        </div>
+        </Motion>
 
-        <div className="flex flex-col items-start md:flex-row">
+        <Motion className="flex flex-col items-start md:flex-row">
           <img
             src={'/faqs.png'}
             alt="faqs"
@@ -55,7 +54,7 @@ const Faqs: FC<FaqsProps> = ({ }) => {
               </AccordionItem>
             ))}
           </Accordion>
-        </div>
+        </Motion>
       </MaxWidthWrapper>
     </div>
   );

@@ -3,6 +3,8 @@ import MaxWidthWrapper from './MaxWidthWrapper'
 import { Icons } from './Icons'
 import { ArrowRight, StarIcon } from 'lucide-react'
 import { cn } from '../lib/utils'
+import ScaleInHeader from './ScaleInHeader'
+import Motion from './Motion'
 
 interface TestimoniesProps {
 
@@ -17,16 +19,16 @@ const testimonies = [
 const Testimonies: FC<TestimoniesProps> = ({ }) => {
     return <div id='testimonies'>
         <MaxWidthWrapper className='mb-20'>
-            <h2 className='order-1 mt-2 tracking-tight text-center text-balance !leading-tight font-bold text-4xl sm:text-5xl text-gray-900'>
+            <ScaleInHeader className='order-1 mt-2 tracking-tight text-center text-balance !leading-tight font-bold text-4xl sm:text-5xl text-gray-900'>
                 What our{' '}
                 <span className='relative px-2'>
                     clients{' '}
                     <Icons.underline className='hidden sm:block pointer-events-none absolute inset-x-0 -bottom-6 text-cyan-800' />
                 </span>{' '}
                 say
-            </h2>
+            </ScaleInHeader>
             <div className="flex flex-wrap xl:flex-nowrap items-center justify-center gap-10 mt-14">
-                {testimonies.map(({name, position, testimony, image}, i) => <div key={i} className={cn('min-w-72 cursor-pointer')}>
+                {testimonies.map(({name, position, testimony, image}, i) => <Motion transition={{ delay: i * .2 }} key={i} className={cn('min-w-72 cursor-pointer')}>
                     <div className="w-full flex flex-col gap-4 max-w-sm">
                         <div className="flex items-center">
                             {Array(5).fill("").map((_e, i) => <StarIcon key={i} fill='#164e63' size={20} color='#164e63' />)}
@@ -42,7 +44,7 @@ const Testimonies: FC<TestimoniesProps> = ({ }) => {
                             </div>
                         </div>
                     </div>
-                </div>)}
+                </Motion>)}
             </div>
             <a href="#" className='text-cyan-800 border-b border-b-cyan-800 w-fit ml-auto flex items-center gap-3'>Read all <ArrowRight size={16} /></a>
         </MaxWidthWrapper>
